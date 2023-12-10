@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Blogs{% endblock %}
+
+{% block content %}
+  <h1>List of Blogs</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Date Published</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for post in posts %}
+        <tr>
+          <td><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></td>
+          <td>{{ post.category }}</td>
+          <td>{{ post.pub_date }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

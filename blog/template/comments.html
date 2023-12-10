@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Comments{% endblock %}
+
+{% block content %}
+  <h1>List of Comments</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Post ID</th>
+        <th>User ID</th>
+        <th>Content</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for comment in comments %}
+        <tr>
+          <td>{{ comment.post.id }}</td>
+          <td>{{ comment.author.id }}</td>
+          <td>{{ comment.text }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
